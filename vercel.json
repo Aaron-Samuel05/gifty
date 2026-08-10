@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "gifty-for-anishka",
+  "name": "anishkaandaaron",
   "cleanUrls": true,
   "routes": [
     { "handle": "filesystem" },

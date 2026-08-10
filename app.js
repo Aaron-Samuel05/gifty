@@ -509,39 +509,70 @@ function initThemeToggle() {
 }
 
 /* ==========================================
-   AUDIO SYNTHESIZER (Web Audio API)
+   BACKGROUND MUSIC (Earrings.mp3)
    ========================================== */
-let audioCtx = null;
+let audioCtx = null;  // shared context for SFX
+let bgAudio = null;
 let isAudioPlaying = false;
-let melodyInterval = null;
 
 function initAudioSynthesizer() {
   const audioBtn = document.getElementById('audio-toggle');
   if (!audioBtn) return;
 
+  // Create the audio element once
+  bgAudio = new Audio('Earrings.mp3');
+  bgAudio.loop = true;
+  bgAudio.volume = 0;          // start silent, fade in
+  bgAudio.preload = 'auto';
+
   audioBtn.addEventListener('click', () => {
+    // Initialise AudioContext on first user gesture (required by browsers)
     if (!audioCtx) {
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     }
-
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
 
     if (isAudioPlaying) {
-      stopMelody();
+      // Fade out then pause
+      fadeAudio(bgAudio, 0, 600, () => bgAudio.pause());
       audioBtn.classList.remove('playing');
       audioBtn.textContent = '🎵';
       isAudioPlaying = false;
     } else {
-      startMelody();
+      // Play and fade in
+      bgAudio.play().then(() => {
+        fadeAudio(bgAudio, 0.75, 800);
+      }).catch(() => {});
       audioBtn.classList.add('playing');
       audioBtn.textContent = '🎶';
       isAudioPlaying = true;
     }
+
+    playPopSFX(700);
   });
 }
 
+/* Smooth volume fade helper */
+function fadeAudio(audio, targetVol, durationMs, onComplete) {
+  const startVol = audio.volume;
+  const diff = targetVol - startVol;
+  const steps = 30;
+  const stepTime = durationMs / steps;
+  let step = 0;
+
+  const timer = setInterval(() => {
+    step++;
+    audio.volume = Math.min(1, Math.max(0, startVol + diff * (step / steps)));
+    if (step >= steps) {
+      clearInterval(timer);
+      if (onComplete) onComplete();
+    }
+  }, stepTime);
+}
+
+/* ==========================================
+   SFX POP TONES (unchanged — used site-wide)
+   ========================================== */
 function playPopSFX(freq = 800) {
   try {
     const ctx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
@@ -562,42 +593,5 @@ function playPopSFX(freq = 800) {
     osc.stop(ctx.currentTime + 0.12);
   } catch (e) {
     // Audio context fallback silent
-  }
-}
-
-function startMelody() {
-  const notes = [261.63, 329.63, 392.00, 523.25, 440.00, 349.23, 392.00, 493.88]; // Sweet romantic scale
-  let noteIdx = 0;
-
-  melodyInterval = setInterval(() => {
-    if (!isAudioPlaying || !audioCtx) return;
-
-    try {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(notes[noteIdx], audioCtx.currentTime);
-
-      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.6);
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.6);
-
-      noteIdx = (noteIdx + 1) % notes.length;
-    } catch (e) {
-      clearInterval(melodyInterval);
-    }
-  }, 400);
-}
-
-function stopMelody() {
-  if (melodyInterval) {
-    clearInterval(melodyInterval);
-    melodyInterval = null;
   }
 }
