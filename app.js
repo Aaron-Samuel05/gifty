@@ -1,4 +1,4 @@
-/* Gifty loader: load the original site logic and memory feature before firing DOMContentLoaded. */
+/* Gifty loader: load the original site logic, memory UI, and cloud memory bridge before firing DOMContentLoaded. */
 (function () {
   function load(src) {
     return new Promise((resolve, reject) => {
@@ -10,10 +10,14 @@
     });
   }
 
-  Promise.all([load('legacy-app.js'), load('memory-feature.js')])
+  Promise.all([
+    load('legacy-app.js'),
+    load('memory-feature.js'),
+    load('supabase-client.js')
+  ])
+    .then(() => load('supabase-memory.js'))
+    .then(() => load('cloud-memory-bridge.js'))
     .then(() => {
-      // Both scripts register DOMContentLoaded handlers. Because app.js itself
-      // is loaded after the DOM event normally fires, trigger it once now.
       document.dispatchEvent(new Event('DOMContentLoaded'));
     })
     .catch(error => console.error('Gifty initialization failed:', error));
