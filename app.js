@@ -1,4 +1,4 @@
-/* Gifty loader: preserves the original site and adds the memory creator. */
+/* Gifty loader: load the original site logic and memory feature before firing DOMContentLoaded. */
 (function () {
   function load(src) {
     return new Promise((resolve, reject) => {
@@ -9,5 +9,12 @@
       document.head.appendChild(s);
     });
   }
-  load('legacy-app.js').then(() => load('memory-feature.js')).catch(console.error);
+
+  Promise.all([load('legacy-app.js'), load('memory-feature.js')])
+    .then(() => {
+      // Both scripts register DOMContentLoaded handlers. Because app.js itself
+      // is loaded after the DOM event normally fires, trigger it once now.
+      document.dispatchEvent(new Event('DOMContentLoaded'));
+    })
+    .catch(error => console.error('Gifty initialization failed:', error));
 })();
