@@ -1,4 +1,4 @@
-/* Connect Gifty's existing memory UI to shared Supabase storage. */
+/* Connect Gifty's existing memory UI to shared Supabase storage, including management controls. */
 (function () {
   'use strict';
   let bound = false;
@@ -35,7 +35,12 @@
       card.innerHTML = `<div class="polaroid-img-wrapper">${photo}<span class="polaroid-badge">${esc(m.badge || 'New Memory 💖')}</span></div><div class="polaroid-caption">${esc(m.title)}</div><div class="polaroid-footer"><span class="polaroid-date">${esc(m.caption || date)}</span><span class="memory-uploader">💗 ${esc(m.uploader)}</span></div>`;
       card.addEventListener('click', () => openViewer(m));
       grid.appendChild(card);
+      if (window.GiftyAttachMemoryControls) window.GiftyAttachMemoryControls(card, m);
     });
+  }
+
+  function refreshAfterChange() {
+    return loadCloud();
   }
 
   function openViewer(m) {
@@ -44,10 +49,20 @@
       viewer = document.createElement('div');
       viewer.className = 'memory-modal';
       viewer.id = 'cloud-memory-viewer';
-      viewer.innerHTML = `<div class="memory-modal-card"><button class="memory-modal-close" type="button">&times;</button><div class="memory-modal-image-wrap"><img class="memory-modal-image" id="cloud-vimg" alt="Memory photo"><button class="memory-modal-nav memory-modal-prev" type="button">‹</button><button class="memory-modal-nav memory-modal-next" type="button">›</button></div><div class="memory-modal-text"><h3 class="memory-modal-title" id="cloud-vtitle"></h3><p class="memory-modal-caption" id="cloud-vcaption"></p><div class="memory-modal-uploader" id="cloud-vuser"></div><div class="memory-modal-counter" id="cloud-vcounter"></div></div></div>`;
+      viewer.innerHTML = `<div class="memory-modal-card"><button class="memory-modal-close" type="button">&times;</button><div class="memory-modal-image-wrap"><img class="memory-modal-image" id="cloud-vimg" alt="Memory photo"><button class="memory-modal-nav memory-modal-prev" type="button">‹</button><button class="memory-modal-nav memory-modal-next" type="button">›</button></div><div class="memory-modal-text"><h3 class="memory-modal-title" id="cloud-vtitle"></h3><p class="memory-modal-caption" id="cloud-vcaption"></p><div class="memory-modal-uploader" id="cloud-vuser"></div><div class="memory-modal-counter" id="cloud-vcounter"></div><div class="cloud-viewer-actions"><button type="button" class="memory-manage-btn" id="cloud-edit-memory">✏️ Edit Memory</button><button type="button" class="memory-manage-btn memory-manage-delete" id="cloud-delete-memory">🗑️ Delete Memory</button></div></div></div>`;
       document.body.appendChild(viewer);
-      viewer.querySelector('.memory-modal-close').onclick = () => viewer.classList.remove('active');
-      viewer.onclick = e => { if (e.target === viewer) viewer.classList.remove('active'); };
+      const close = () => viewer.classList.remove('active');
+      viewer.querySelector('.memory-modal-close').onclick = close;
+      viewer.onclick = e => { if (e.target === viewer) close(); };
+      viewer.querySelector('#cloud-edit-memory').onclick = e => { e.stopPropagation(); close(); if (window.GiftyEditMemory) window.GiftyEditMemory(m); };
+      viewer.querySelector('#cloud-delete-memory').onclick = async e => {
+        e.stopPropagation();
+        if (!confirm(`Delete “${m.title}” permanently?`)) return;
+        const btn = viewer.querySelector('#cloud-delete-memory'); btn.disabled = true; btn.textContent = 'Deleting…';
+        try { await window.GiftyCloudMemories.remove(m.id); close(); await refreshAfterChange(); }
+        catch (err) { console.error(err); alert('Could not delete this memory. Check the Supabase edit/delete policies.'); }
+        finally { btn.disabled = false; btn.textContent = '🗑️ Delete Memory'; }
+      };
     }
     let index = 0;
     const imgs = m.images || [];
@@ -59,8 +74,8 @@
       if (!imgs.length) { img.style.display='none'; prev.style.display=next.style.display='none'; document.getElementById('cloud-vcounter').textContent='Text memory • no photos added'; }
       else { img.style.display='block'; img.src=imgs[index]; prev.style.display=next.style.display=imgs.length>1?'block':'none'; document.getElementById('cloud-vcounter').textContent=`Photo ${index+1} of ${imgs.length}`; }
     };
-    viewer.querySelector('.memory-modal-prev').onclick = () => { index=(index-1+imgs.length)%imgs.length; show(); };
-    viewer.querySelector('.memory-modal-next').onclick = () => { index=(index+1)%imgs.length; show(); };
+    viewer.querySelector('.memory-modal-prev').onclick = e => { e.stopPropagation(); index=(index-1+imgs.length)%imgs.length; show(); };
+    viewer.querySelector('.memory-modal-next').onclick = e => { e.stopPropagation(); index=(index+1)%imgs.length; show(); };
     viewer.classList.add('active'); show();
   }
 
