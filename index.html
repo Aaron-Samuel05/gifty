@@ -15,420 +15,49 @@
 
   <!-- Glassmorphic Navbar -->
   <nav class="navbar" id="navbar">
-    <a href="#hero" class="brand-logo" id="brand-logo">
-      <span class="heart-icon">💖</span> Anishka's Space
-    </a>
-
+    <a href="#hero" class="brand-logo" id="brand-logo"><span class="heart-icon">💖</span> Anishka's Space</a>
     <ul class="nav-links">
-      <li><a href="#hero" class="nav-link">Home</a></li>
-      <li><a href="#memories" class="nav-link">Memories</a></li>
-      <li><a href="#reasons" class="nav-link">Love Notes</a></li>
-      <li><a href="#timeline" class="nav-link">Our Story</a></li>
-      <li><a href="#secret" class="nav-link">Secret Note</a></li>
-      <li><a href="#game" class="nav-link">Mini Game</a></li>
+      <li><a href="#hero" class="nav-link">Home</a></li><li><a href="#memories" class="nav-link">Memories</a></li><li><a href="#reasons" class="nav-link">Love Notes</a></li><li><a href="#timeline" class="nav-link">Our Story</a></li><li><a href="#secret" class="nav-link">Secret Note</a></li><li><a href="#game" class="nav-link">Mini Game</a></li>
     </ul>
-
-    <div class="nav-controls">
-      <button class="btn-icon audio-btn" id="audio-toggle" title="Play Sweet Melody" aria-label="Toggle Background Music">
-        🎵
-      </button>
-      <button class="btn-icon theme-btn" id="theme-toggle" title="Switch Theme (Cute / Cool)" aria-label="Toggle Color Theme">
-        ✨
-      </button>
-    </div>
+    <div class="nav-controls"><button class="btn-icon audio-btn" id="audio-toggle" title="Play Sweet Melody" aria-label="Toggle Background Music">🎵</button><button class="btn-icon theme-btn" id="theme-toggle" title="Switch Theme (Cute / Cool)" aria-label="Toggle Color Theme">✨</button></div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span>✨ Dedicated to my favorite girl ✨</span>
-        </div>
-        <h1 class="hero-title">
-          Hey <span class="gradient-text">Anishka</span>! <br> You Make Life Wonderful 💕
-        </h1>
-        <p class="hero-subtitle">
-          Every moment with you is a memory worth keeping forever. Here’s a little secret corner of the web made <strong>just for you</strong>!
-        </p>
+  <section class="hero-section" id="hero"><div class="container"><div class="hero-content"><div class="hero-badge"><span>✨ Dedicated to my favorite girl ✨</span></div><h1 class="hero-title">Hey <span class="gradient-text">Anishka</span>! <br> You Make Life Wonderful 💕</h1><p class="hero-subtitle">Every moment with you is a memory worth keeping forever. Here’s a little secret corner of the web made <strong>just for you</strong>!</p><div class="hero-cta"><a href="#memories" class="btn-primary" id="explore-btn">📸 Explore Our Memories</a><a href="#secret" class="btn-secondary" id="secret-btn">💌 Open Secret Envelope</a></div><div class="love-counter-box" id="love-counter"><div class="counter-title">⏳ Time Spent Making Amazing Memories Together</div><div class="timer-grid"><div class="timer-item"><div class="timer-number" id="timer-days">00</div><div class="timer-label">Days</div></div><div class="timer-item"><div class="timer-number" id="timer-hours">00</div><div class="timer-label">Hours</div></div><div class="timer-item"><div class="timer-number" id="timer-mins">00</div><div class="timer-label">Minutes</div></div><div class="timer-item"><div class="timer-number" id="timer-secs">00</div><div class="timer-label">Seconds</div></div></div></div></div></div></section>
 
-        <div class="hero-cta">
-          <a href="#memories" class="btn-primary" id="explore-btn">
-            📸 Explore Our Memories
-          </a>
-          <a href="#secret" class="btn-secondary" id="secret-btn">
-            💌 Open Secret Envelope
-          </a>
-        </div>
+  <section class="section" id="memories"><div class="container"><div class="section-header"><span class="section-tag">Photo Gallery</span><h2 class="section-title">Our Core Memories 📸</h2><p class="section-desc">Click any polaroid to view in full resolution, add glowing filters, or show some love!</p></div><div class="gallery-controls"><button class="filter-btn active" data-filter="all">All Snapshots ✨</button><button class="filter-btn" data-filter="cute">Cute Moments 💕</button><button class="filter-btn" data-filter="fun">Adventures 🚀</button></div><div class="memory-grid" id="memory-grid">
+    <div class="polaroid-card" data-index="0" data-category="cute"><div class="polaroid-img-wrapper"><img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM.jpeg" alt="Anishka memory 1" class="polaroid-img" loading="lazy"><span class="polaroid-badge">Favorite 🥰</span></div><div class="polaroid-caption">That unforgettable warm smile ✨</div><div class="polaroid-footer"><span class="polaroid-date">Sweet Moment</span><button class="like-btn" data-id="0">❤️ <span class="like-count">12</span></button></div></div>
+    <div class="polaroid-card" data-index="1" data-category="cute"><div class="polaroid-img-wrapper"><img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (1).jpeg" alt="Anishka memory 2" class="polaroid-img" loading="lazy"><span class="polaroid-badge">Cutest 💕</span></div><div class="polaroid-caption">Pure happiness captured 🌸</div><div class="polaroid-footer"><span class="polaroid-date">Memory #2</span><button class="like-btn" data-id="1">❤️ <span class="like-count">18</span></button></div></div>
+    <div class="polaroid-card" data-index="2" data-category="fun"><div class="polaroid-img-wrapper"><img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (2).jpeg" alt="Anishka memory 3" class="polaroid-img" loading="lazy"><span class="polaroid-badge">Vibes ✨</span></div><div class="polaroid-caption">Casual day, maximum glow 👑</div><div class="polaroid-footer"><span class="polaroid-date">Memory #3</span><button class="like-btn" data-id="2">❤️ <span class="like-count">24</span></button></div></div>
+    <div class="polaroid-card" data-index="3" data-category="cute"><div class="polaroid-img-wrapper"><img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (3).jpeg" alt="Anishka memory 4" class="polaroid-img" loading="lazy"><span class="polaroid-badge">Adorable 💖</span></div><div class="polaroid-caption">Brightening up the whole room ☀️</div><div class="polaroid-footer"><span class="polaroid-date">Memory #4</span><button class="like-btn" data-id="3">❤️ <span class="like-count">15</span></button></div></div>
+    <div class="polaroid-card" data-index="4" data-category="fun"><div class="polaroid-img-wrapper"><img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (4).jpeg" alt="Anishka memory 5" class="polaroid-img" loading="lazy"><span class="polaroid-badge">Iconic 💫</span></div><div class="polaroid-caption">Spontaneous & unscripted fun 🎉</div><div class="polaroid-footer"><span class="polaroid-date">Memory #5</span><button class="like-btn" data-id="4">❤️ <span class="like-count">30</span></button></div></div>
+    <div class="polaroid-card" data-index="5" data-category="cute"><div class="polaroid-img-wrapper"><img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (5).jpeg" alt="Anishka memory 6" class="polaroid-img" loading="lazy"><span class="polaroid-badge">Angel 👼</span></div><div class="polaroid-caption">My absolute happy place 🌷</div><div class="polaroid-footer"><span class="polaroid-date">Memory #6</span><button class="like-btn" data-id="5">❤️ <span class="like-count">21</span></button></div></div>
+    <div class="polaroid-card" data-index="6" data-category="fun"><div class="polaroid-img-wrapper"><img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (6).jpeg" alt="Anishka memory 7" class="polaroid-img" loading="lazy"><span class="polaroid-badge">Cute Face 🤩</span></div><div class="polaroid-caption">Making every moment special 🌟</div><div class="polaroid-footer"><span class="polaroid-date">Memory #7</span><button class="like-btn" data-id="6">❤️ <span class="like-count">27</span></button></div></div>
+    <div class="polaroid-card" data-index="7" data-category="cute"><div class="polaroid-img-wrapper"><img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (7).jpeg" alt="Anishka memory 8" class="polaroid-img" loading="lazy"><span class="polaroid-badge">Precious 💎</span></div><div class="polaroid-caption">Forever my favorite view 💖</div><div class="polaroid-footer"><span class="polaroid-date">Memory #8</span><button class="like-btn" data-id="7">❤️ <span class="like-count">42</span></button></div></div>
+  </div></div></section>
 
-        <!-- Real-time Love Counter -->
-        <div class="love-counter-box" id="love-counter">
-          <div class="counter-title">⏳ Time Spent Making Amazing Memories Together</div>
-          <div class="timer-grid">
-            <div class="timer-item">
-              <div class="timer-number" id="timer-days">00</div>
-              <div class="timer-label">Days</div>
-            </div>
-            <div class="timer-item">
-              <div class="timer-number" id="timer-hours">00</div>
-              <div class="timer-label">Hours</div>
-            </div>
-            <div class="timer-item">
-              <div class="timer-number" id="timer-mins">00</div>
-              <div class="timer-label">Minutes</div>
-            </div>
-            <div class="timer-item">
-              <div class="timer-number" id="timer-secs">00</div>
-              <div class="timer-label">Seconds</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="lightbox-modal" id="lightbox-modal"><div class="lightbox-content"><button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button><button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous Photo">&#10094;</button><button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next Photo">&#10095;</button><div class="lightbox-image-box"><img src="" alt="Full view" id="lightbox-img" class="lightbox-img filter-normal"></div><div class="lightbox-caption" id="lightbox-caption">Memory Caption</div><div class="lightbox-tools"><button class="filter-btn active" data-style="normal">Original</button><button class="filter-btn" data-style="warm">Warm Glow ✨</button><button class="filter-btn" data-style="dreamy">Dreamy Pink 🌸</button><button class="filter-btn" data-style="cyber">Cyber Neon ⚡</button></div></div></div>
 
-  <!-- Core Memories Gallery Section -->
-  <section class="section" id="memories">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Photo Gallery</span>
-        <h2 class="section-title">Our Core Memories 📸</h2>
-        <p class="section-desc">Click any polaroid to view in full resolution, add glowing filters, or show some love!</p>
-      </div>
+  <section class="section" id="reasons"><div class="container"><div class="section-header"><span class="section-tag">Interactive Love Notes</span><h2 class="section-title">Reasons Why Anishka is Amazing 💌</h2><p class="section-desc">Hover or tap on any card below to flip it over and read a little secret note!</p></div><div class="reasons-grid">
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><div class="card-num">01</div><div class="card-hint">Tap to Flip 💖</div></div><div class="flip-card-back"><p class="card-text">"Your laugh is literally the cutest sound in the entire world."</p></div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><div class="card-num">02</div><div class="card-hint">Tap to Flip 🌟</div></div><div class="flip-card-back"><p class="card-text">"You have the kindest heart and always bring warmth wherever you go."</p></div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><div class="card-num">03</div><div class="card-hint">Tap to Flip 🌸</div></div><div class="flip-card-back"><p class="card-text">"Even on chaotic days, talking to you instantly calms everything down."</p></div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><div class="card-num">04</div><div class="card-hint">Tap to Flip ✨</div></div><div class="flip-card-back"><p class="card-text">"You look unbelievably gorgeous in every single photo without even trying."</p></div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><div class="card-num">05</div><div class="card-hint">Tap to Flip 💕</div></div><div class="flip-card-back"><p class="card-text">"My favorite place in the world will always be anywhere right next to you."</p></div></div></div>
+    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><div class="card-num">06</div><div class="card-hint">Tap to Flip 👑</div></div><div class="flip-card-back"><p class="card-text">"You make ordinary moments feel like the best memories."</p></div></div></div>
+  </div></div></section>
 
-      <!-- Filter Controls -->
-      <div class="gallery-controls">
-        <button class="filter-btn active" data-filter="all">All Snapshots ✨</button>
-        <button class="filter-btn" data-filter="cute">Cute Moments 💕</button>
-        <button class="filter-btn" data-filter="fun">Adventures 🚀</button>
-      </div>
+  <section class="section" id="timeline"><div class="container"><div class="section-header"><span class="section-tag">Our Journey</span><h2 class="section-title">Little Moments, Big Memories 🌸</h2></div><div class="timeline"><div class="timeline-item"><div class="timeline-dot">💗</div><div class="timeline-content"><h3>The Beginning</h3><p>Where our story started and everything became a little more special.</p></div></div><div class="timeline-item"><div class="timeline-dot">✨</div><div class="timeline-content"><h3>More Memories</h3><p>Every laugh, every conversation, every tiny moment worth remembering.</p></div></div><div class="timeline-item"><div class="timeline-dot">💕</div><div class="timeline-content"><h3>Today & Beyond</h3><p>Still making memories, one beautiful day at a time.</p></div></div></div></div></section>
 
-      <!-- Polaroid Cards Grid -->
-      <div class="memory-grid" id="memory-grid">
-        <!-- Photo 1 -->
-        <div class="polaroid-card" data-index="0" data-category="cute">
-          <div class="polaroid-img-wrapper">
-            <img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM.jpeg" alt="Anishka memory 1" class="polaroid-img" loading="lazy">
-            <span class="polaroid-badge">Favorite 🥰</span>
-          </div>
-          <div class="polaroid-caption">That unforgettable warm smile ✨</div>
-          <div class="polaroid-footer">
-            <span class="polaroid-date">Sweet Moment</span>
-            <button class="like-btn" data-id="0">❤️ <span class="like-count">12</span></button>
-          </div>
-        </div>
+  <section class="section" id="secret"><div class="container"><div class="section-header"><span class="section-tag">Just For You</span><h2 class="section-title">A Secret Note 💌</h2><p class="section-desc">Enter the secret passcode to unlock the envelope.</p></div><div class="secret-box"><form id="secret-form"><input type="text" class="passcode-input" id="passcode-input" placeholder="Passcode (Hint: ANISHKA)" autocomplete="off"><button type="submit" class="btn-primary" id="unlock-btn">Unlock Envelope ✨</button></form><div class="envelope-wrapper" id="envelope-wrapper"><div class="envelope" id="envelope"><div class="envelope-flap"></div><div class="wax-seal">💖</div></div><p style="margin-top:12px;font-size:.9rem;color:var(--text-secondary);">Click the wax seal to unseal the letter!</p></div><div class="letter-content" id="letter-content"><p style="font-size:1.9rem;font-weight:700;color:var(--text-accent);margin-bottom:12px;">Dearest Anishka,</p><p>If you're reading this, I just want you to know how deeply loved, appreciated, and admired you truly are.</p><p style="margin-top:10px;">You bring so much sunshine into my world. Your smile can light up the darkest day, and your caring soul makes everything around you feel warmer and more beautiful.</p><p style="margin-top:10px;">Thank you for being you—for all your silly jokes, your sweet voice, your adorable energy, and all the precious memories we've created together.</p><p style="margin-top:16px;text-align:right;font-weight:700;color:var(--text-accent);">Forever yours 💕</p></div></div></div></section>
 
-        <!-- Photo 2 -->
-        <div class="polaroid-card" data-index="1" data-category="cute">
-          <div class="polaroid-img-wrapper">
-            <img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (1).jpeg" alt="Anishka memory 2" class="polaroid-img" loading="lazy">
-            <span class="polaroid-badge">Cutest 💕</span>
-          </div>
-          <div class="polaroid-caption">Pure happiness captured 🌸</div>
-          <div class="polaroid-footer">
-            <span class="polaroid-date">Memory #2</span>
-            <button class="like-btn" data-id="1">❤️ <span class="like-count">18</span></button>
-          </div>
-        </div>
+  <section class="section" id="game"><div class="container"><div class="section-header"><span class="section-tag">Arcade Play Zone</span><h2 class="section-title">Catch Anishka's Hearts 💕</h2><p class="section-desc">Click or tap the falling hearts to catch them before they hit the ground!</p></div><div class="game-container"><div class="game-header"><div class="score-badge">Score: <span id="game-score">0</span> 💖</div><button class="btn-primary" id="start-game-btn" style="padding:8px 20px;font-size:.9rem;">Start Game 🎮</button></div><canvas id="game-canvas"></canvas></div></div></section>
 
-        <!-- Photo 3 -->
-        <div class="polaroid-card" data-index="2" data-category="fun">
-          <div class="polaroid-img-wrapper">
-            <img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (2).jpeg" alt="Anishka memory 3" class="polaroid-img" loading="lazy">
-            <span class="polaroid-badge">Vibes ✨</span>
-          </div>
-          <div class="polaroid-caption">Casual day, maximum glow 👑</div>
-          <div class="polaroid-footer">
-            <span class="polaroid-date">Memory #3</span>
-            <button class="like-btn" data-id="2">❤️ <span class="like-count">24</span></button>
-          </div>
-        </div>
+  <footer class="footer"><div class="container"><div class="footer-text">Made with lots of ❤️ & ✨ for Anishka</div><p style="margin-top:8px;font-size:1.1rem;font-weight:600;color:var(--text-accent);opacity:.9;">Created with love by Aaron 💕</p></div></footer>
 
-        <!-- Photo 4 -->
-        <div class="polaroid-card" data-index="3" data-category="cute">
-          <div class="polaroid-img-wrapper">
-            <img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (3).jpeg" alt="Anishka memory 4" class="polaroid-img" loading="lazy">
-            <span class="polaroid-badge">Adorable 💖</span>
-          </div>
-          <div class="polaroid-caption">Brightening up the whole room ☀️</div>
-          <div class="polaroid-footer">
-            <span class="polaroid-date">Memory #4</span>
-            <button class="like-btn" data-id="3">❤️ <span class="like-count">15</span></button>
-          </div>
-        </div>
-
-        <!-- Photo 5 -->
-        <div class="polaroid-card" data-index="4" data-category="fun">
-          <div class="polaroid-img-wrapper">
-            <img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (4).jpeg" alt="Anishka memory 5" class="polaroid-img" loading="lazy">
-            <span class="polaroid-badge">Iconic 💫</span>
-          </div>
-          <div class="polaroid-caption">Spontaneous & unscripted fun 🎉</div>
-          <div class="polaroid-footer">
-            <span class="polaroid-date">Memory #5</span>
-            <button class="like-btn" data-id="4">❤️ <span class="like-count">30</span></button>
-          </div>
-        </div>
-
-        <!-- Photo 6 -->
-        <div class="polaroid-card" data-index="5" data-category="cute">
-          <div class="polaroid-img-wrapper">
-            <img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (5).jpeg" alt="Anishka memory 6" class="polaroid-img" loading="lazy">
-            <span class="polaroid-badge">Angel 👼</span>
-          </div>
-          <div class="polaroid-caption">My absolute happy place 🌷</div>
-          <div class="polaroid-footer">
-            <span class="polaroid-date">Memory #6</span>
-            <button class="like-btn" data-id="5">❤️ <span class="like-count">21</span></button>
-          </div>
-        </div>
-
-        <!-- Photo 7 -->
-        <div class="polaroid-card" data-index="6" data-category="fun">
-          <div class="polaroid-img-wrapper">
-            <img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (6).jpeg" alt="Anishka memory 7" class="polaroid-img" loading="lazy">
-            <span class="polaroid-badge">Cute Face 🤩</span>
-          </div>
-          <div class="polaroid-caption">Making every moment special 🌟</div>
-          <div class="polaroid-footer">
-            <span class="polaroid-date">Memory #7</span>
-            <button class="like-btn" data-id="6">❤️ <span class="like-count">27</span></button>
-          </div>
-        </div>
-
-        <!-- Photo 8 -->
-        <div class="polaroid-card" data-index="7" data-category="cute">
-          <div class="polaroid-img-wrapper">
-            <img src="images/WhatsApp Image 2026-07-31 at 11.43.21 PM (7).jpeg" alt="Anishka memory 8" class="polaroid-img" loading="lazy">
-            <span class="polaroid-badge">Precious 💎</span>
-          </div>
-          <div class="polaroid-caption">Forever my favorite view 💖</div>
-          <div class="polaroid-footer">
-            <span class="polaroid-date">Memory #8</span>
-            <button class="like-btn" data-id="7">❤️ <span class="like-count">42</span></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Lightbox Overlay Modal -->
-  <div class="lightbox-modal" id="lightbox-modal">
-    <div class="lightbox-content">
-      <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
-      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous Photo">&#10094;</button>
-      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next Photo">&#10095;</button>
-
-      <div class="lightbox-image-box">
-        <img src="" alt="Full view" id="lightbox-img" class="lightbox-img filter-normal">
-      </div>
-
-      <div class="lightbox-caption" id="lightbox-caption">Memory Caption</div>
-
-      <div class="lightbox-tools">
-        <button class="filter-btn active" data-style="normal">Original</button>
-        <button class="filter-btn" data-style="warm">Warm Glow ✨</button>
-        <button class="filter-btn" data-style="dreamy">Dreamy Pink 🌸</button>
-        <button class="filter-btn" data-style="cyber">Cyber Neon ⚡</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Reasons Why Anishka is Special Deck -->
-  <section class="section" id="reasons">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Interactive Love Notes</span>
-        <h2 class="section-title">Reasons Why Anishka is Amazing 💌</h2>
-        <p class="section-desc">Hover or tap on any card below to flip it over and read a little secret note!</p>
-      </div>
-
-      <div class="reasons-grid">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div class="card-num">01</div>
-              <div class="card-hint">Tap to Flip 💖</div>
-            </div>
-            <div class="flip-card-back">
-              <p class="card-text">"Your laugh is literally the cutest sound in the entire world."</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div class="card-num">02</div>
-              <div class="card-hint">Tap to Flip 🌟</div>
-            </div>
-            <div class="flip-card-back">
-              <p class="card-text">"You have the kindest heart and always bring warmth wherever you go."</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div class="card-num">03</div>
-              <div class="card-hint">Tap to Flip 🌸</div>
-            </div>
-            <div class="flip-card-back">
-              <p class="card-text">"Even on chaotic days, talking to you instantly calms everything down."</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div class="card-num">04</div>
-              <div class="card-hint">Tap to Flip ✨</div>
-            </div>
-            <div class="flip-card-back">
-              <p class="card-text">"You look unbelievably gorgeous in every single photo without even trying."</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div class="card-num">05</div>
-              <div class="card-hint">Tap to Flip 💕</div>
-            </div>
-            <div class="flip-card-back">
-              <p class="card-text">"My favorite place in the world will always be anywhere right next to you."</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <div class="card-num">06</div>
-              <div class="card-hint">Tap to Flip 👑</div>
-            </div>
-            <div class="flip-card-back">
-              <p class="card-text">"You are my best friend, my joy, and my favorite person forever!"</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline Section -->
-  <section class="section" id="timeline">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Milestone Journey</span>
-        <h2 class="section-title">Our Story So Far ✨</h2>
-        <p class="section-desc">A quick look back at some of the sweetest moments we've shared.</p>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-date">February 12, 2026 • 5:00 PM</span>
-            <h3 class="timeline-title">Official Start of Our Love Story ❤️</h3>
-            <p>The magic moment we officially started dating!</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-date">Chapter II</span>
-            <h3 class="timeline-title">Endless Late Night Chats 🌙</h3>
-            <p>Hours flying by like minutes while sharing funny stories, dreams, and sweet secrets.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-date">Chapter III</span>
-            <h3 class="timeline-title">Creating Special Memories 📸</h3>
-            <p>Taking cute pictures, going on adventures, and making every day brighter.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-date">Chapter IV</span>
-            <h3 class="timeline-title">Forever & Always ❤️</h3>
-            <p>Building a future filled with love, laughter, and endless happy moments together.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Secret Love Letter Section -->
-  <section class="section" id="secret">
-    <div class="container">
-      <div class="secret-section-box">
-        <div class="lock-icon-wrapper">🔐</div>
-        <h2 class="section-title">Anishka's Secret Envelope 💌</h2>
-        <p class="section-desc">Enter the secret passcode below or click "Unlock Secret" to open your special love note!</p>
-
-        <form class="secret-form" id="secret-form">
-          <input type="text" class="passcode-input" id="passcode-input" placeholder="Passcode (Hint: ANISHKA)" autocomplete="off">
-          <button type="submit" class="btn-primary" id="unlock-btn">Unlock Envelope ✨</button>
-        </form>
-
-        <div class="envelope-wrapper" id="envelope-wrapper">
-          <div class="envelope" id="envelope">
-            <div class="envelope-flap"></div>
-            <div class="wax-seal">💖</div>
-          </div>
-          <p style="margin-top:12px; font-size:0.9rem; color:var(--text-secondary);">Click the wax seal to unseal the letter!</p>
-        </div>
-
-        <div class="letter-content" id="letter-content">
-          <p style="font-size:1.9rem; font-weight:700; color:var(--text-accent); margin-bottom:12px;">Dearest Anishka,</p>
-          <p>If you're reading this, I just want you to know how deeply loved, appreciated, and admired you truly are.</p>
-          <p style="margin-top:10px;">You bring so much sunshine into my world. Your smile can light up the darkest day, and your caring soul makes everything around you feel warmer and more beautiful.</p>
-          <p style="margin-top:10px;">Thank you for being you—for all your silly jokes, your sweet voice, your adorable energy, and all the precious memories we've created together.</p>
-          <p style="margin-top:16px; text-align:right; font-weight:700; color:var(--text-accent);">Forever yours 💕</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mini Game Section -->
-  <section class="section" id="game">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Arcade Play Zone</span>
-        <h2 class="section-title">Catch Anishka's Hearts 💕</h2>
-        <p class="section-desc">Click or tap the falling hearts to catch them before they hit the ground!</p>
-      </div>
-
-      <div class="game-container">
-        <div class="game-header">
-          <div class="score-badge">Score: <span id="game-score">0</span> 💖</div>
-          <button class="btn-primary" id="start-game-btn" style="padding:8px 20px; font-size:0.9rem;">Start Game 🎮</button>
-        </div>
-        <canvas id="game-canvas"></canvas>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-text">Made with lots of ❤️ & ✨ for Anishka</div>
-      <p style="margin-top: 8px; font-size: 1.1rem; font-weight: 600; color: var(--text-accent); opacity: 0.9;">
-        Created with love by Aaron 💕
-      </p>
-    </div>
-  </footer>
-
+  <!-- Cloud memory dependencies MUST load before app.js. -->
+  <script src="supabase-client.js"></script>
+  <script src="supabase-memory.js"></script>
+  <script src="cloud-memory-bridge.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
